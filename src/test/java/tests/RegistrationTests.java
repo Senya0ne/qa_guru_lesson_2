@@ -6,6 +6,8 @@ import com.github.javafaker.service.RandomService;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.Locale;
+
+import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -45,6 +47,20 @@ public class RegistrationTests {
         $(byText("Delhi")).click();
         $("#submit").scrollTo().click();
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+
+        $x("*//tr[1]/td[2]").shouldHave(text(firstName + " " + lastName));
+        $x("*//tr[2]/td[2]").shouldHave(text(userEmail));
+        $x("*//tr[3]/td[2]").shouldHave(text("Male"));
+        $x("*//tr[4]/td[2]").shouldHave(text(userNumber));
+        $x("*//tr[5]/td[2]").shouldHave(text("03 November,2020"));
+        $x("*//tr[6]/td[2]").shouldHave(text("Biology"));
+        $x("*//tr[7]/td[2]").shouldHave(text("Sports"));
+        $x("*//tr[8]/td[2]").shouldHave(text("test.jpg"));
+        $x("*//tr[9]/td[2]").shouldHave(text(address));
+        $x("*//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
+
         $("#closeLargeModal").click();
+
+
     }
 }
