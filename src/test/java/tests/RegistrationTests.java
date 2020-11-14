@@ -6,14 +6,11 @@ import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import org.junit.jupiter.api.Test;
 import java.io.File;
-import org.openqa.selenium.By;
 
 
 import java.util.Locale;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegistrationTests {
     
