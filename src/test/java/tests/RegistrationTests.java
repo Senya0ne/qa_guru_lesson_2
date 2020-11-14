@@ -10,6 +10,7 @@ import java.io.File;
 
 import java.util.Locale;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationTests {
@@ -43,10 +44,10 @@ public class RegistrationTests {
         $("#uploadPicture").uploadFile(file);
         $("#currentAddress").val(address);
 
-//        $("#state").scrollTo().click();
-//        $$(".css-l3qy-menu");
-//        $("#city").click();
-//        $(".div").selectOptionContainingText("Delhi");
+        $("#state").scrollTo().click();
+        $(byText("NCR")).click();
+        $("#city").click();
+        $(byText("Delhi")).click();
 
         $("#submit").scrollTo().click();
 
