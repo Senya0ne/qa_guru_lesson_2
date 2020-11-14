@@ -5,10 +5,7 @@ import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import org.junit.jupiter.api.Test;
 import java.io.File;
-
-
 import java.util.Locale;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -48,5 +45,6 @@ public class RegistrationTests {
         $(byText("Delhi")).click();
         $("#submit").scrollTo().click();
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $("#closeLargeModal").click();
     }
 }
