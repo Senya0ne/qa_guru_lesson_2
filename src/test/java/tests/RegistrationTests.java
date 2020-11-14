@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
@@ -10,13 +9,11 @@ import java.io.File;
 
 import java.util.Locale;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationTests {
-    
-
-
 
     @Test
     void successfulRegistrationTest() {
@@ -39,7 +36,9 @@ public class RegistrationTests {
         $("#userNumber").val(userNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__day--003").click();
-//        $("#subjectsContainer").val("Hindi");
+        $("#subjectsInput").click();
+        $("#subjectsInput").val("Biology");
+        $$("div[id^=\"react-select-2-option\"]").find(text("Biology")).click();
         $x("//*[@for='hobbies-checkbox-1']").click();
         $("#uploadPicture").uploadFile(file);
         $("#currentAddress").val(address);
@@ -51,7 +50,6 @@ public class RegistrationTests {
 
         $("#submit").scrollTo().click();
 
-        $("#example-modal-sizes-title-lg").shouldHave(Condition.text("Thanks for submitting the form"));
-
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
     }
 }
