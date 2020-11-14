@@ -42,14 +42,11 @@ public class RegistrationTests {
         $x("//*[@for='hobbies-checkbox-1']").click();
         $("#uploadPicture").uploadFile(file);
         $("#currentAddress").val(address);
-
         $("#state").scrollTo().click();
         $(byText("NCR")).click();
         $("#city").click();
         $(byText("Delhi")).click();
-
         $("#submit").scrollTo().click();
-
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
     }
 }
