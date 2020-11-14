@@ -13,6 +13,8 @@
 #idea
 .idea
 .gradle
+.build
+gradle
 
 # Package Files #
 *.jar
