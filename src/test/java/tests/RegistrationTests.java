@@ -26,7 +26,6 @@ public class RegistrationTests {
         String address = faker.address().fullAddress();
         File file = new File("src/test/resources/test.jpg");
 
-
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").val(firstName);
         $("#lastName").val(lastName);
@@ -58,8 +57,5 @@ public class RegistrationTests {
         $x("*//tr[8]/td[2]").shouldHave(text("test.jpg"));
         $x("*//tr[9]/td[2]").shouldHave(text(address));
         $x("*//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
-
-
-
     }
 }
