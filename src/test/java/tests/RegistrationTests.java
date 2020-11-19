@@ -24,7 +24,7 @@ public class RegistrationTests {
         String userEmail = fakeValuesService.bothify("????##@gmail.com");
         String userNumber = fakeValuesService.regexify("[0-9]{10}");
         String address = faker.address().fullAddress();
-        File file = new File("src/test/java/helpers/test.jpg");
+        File file = new File("src/test/resources/test.jpg");
 
 
         open("https://demoqa.com/automation-practice-form");
@@ -59,7 +59,6 @@ public class RegistrationTests {
         $x("*//tr[9]/td[2]").shouldHave(text(address));
         $x("*//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
 
-        $("#closeLargeModal").click();
 
 
     }
