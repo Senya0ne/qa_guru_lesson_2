@@ -24,6 +24,10 @@ public class RegistrationTests {
         String userEmail = fakeValuesService.bothify("????##@gmail.com");
         String userNumber = fakeValuesService.regexify("[0-9]{10}");
         String address = faker.address().fullAddress();
+        String subject = "Biology";
+        String gender = "Male";
+        String hobbies = "Sports";
+        String date = "03 November,2020";
         File file = new File("src/test/resources/test.jpg");
 
         open("https://demoqa.com/automation-practice-form");
@@ -35,8 +39,8 @@ public class RegistrationTests {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__day--003").click();
         $("#subjectsInput").click();
-        $("#subjectsInput").val("Biology");
-        $$("div[id^=\"react-select-2-option\"]").find(text("Biology")).click();
+        $("#subjectsInput").val(subject);
+        $$("div[id^=\"react-select-2-option\"]").find(text(subject)).click();
         $x("//*[@for='hobbies-checkbox-1']").click();
         $("#uploadPicture").uploadFile(file);
         $("#currentAddress").val(address);
@@ -45,15 +49,15 @@ public class RegistrationTests {
         $("#city").click();
         $(byText("Delhi")).click();
         $("#submit").scrollTo().click();
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $x("*//tr[1]/td[2]").shouldHave(text(firstName + " " + lastName));
         $x("*//tr[2]/td[2]").shouldHave(text(userEmail));
-        $x("*//tr[3]/td[2]").shouldHave(text("Male"));
+        $x("*//tr[3]/td[2]").shouldHave(text(gender));
         $x("*//tr[4]/td[2]").shouldHave(text(userNumber));
-        $x("*//tr[5]/td[2]").shouldHave(text("03 November,2020"));
-        $x("*//tr[6]/td[2]").shouldHave(text("Biology"));
-        $x("*//tr[7]/td[2]").shouldHave(text("Sports"));
+        $x("*//tr[5]/td[2]").shouldHave(text(date));
+        $x("*//tr[6]/td[2]").shouldHave(text(subject));
+        $x("*//tr[7]/td[2]").shouldHave(text(hobbies));
         $x("*//tr[8]/td[2]").shouldHave(text("test.jpg"));
         $x("*//tr[9]/td[2]").shouldHave(text(address));
         $x("*//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
