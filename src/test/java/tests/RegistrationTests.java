@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.Locale;
 
-import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -28,6 +27,8 @@ public class RegistrationTests {
         String gender = "Male";
         String hobbies = "Sports";
         String date = "03 November,2020";
+        String state = "NCR";
+        String city = "Delhi";
         File file = new File("src/test/resources/test.jpg");
 
         open("https://demoqa.com/automation-practice-form");
@@ -45,9 +46,9 @@ public class RegistrationTests {
         $("#uploadPicture").uploadFile(file);
         $("#currentAddress").val(address);
         $("#state").scrollTo().click();
-        $(byText("NCR")).click();
+        $(byText(state)).click();
         $("#city").click();
-        $(byText("Delhi")).click();
+        $(byText(city)).click();
         $("#submit").scrollTo().click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
@@ -60,6 +61,7 @@ public class RegistrationTests {
         $x("*//tr[7]/td[2]").shouldHave(text(hobbies));
         $x("*//tr[8]/td[2]").shouldHave(text("test.jpg"));
         $x("*//tr[9]/td[2]").shouldHave(text(address));
-        $x("*//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
+//        $x("*//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
+        $x("*//tr[10]/td[2]").shouldHave(text(state + " " + city));
     }
 }
