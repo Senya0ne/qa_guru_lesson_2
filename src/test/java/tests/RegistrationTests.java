@@ -61,7 +61,6 @@ public class RegistrationTests {
         $x("*//tr[7]/td[2]").shouldHave(text(hobbies));
         $x("*//tr[8]/td[2]").shouldHave(text("test.jpg"));
         $x("*//tr[9]/td[2]").shouldHave(text(address));
-//        $x("*//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
         $x("*//tr[10]/td[2]").shouldHave(text(state + " " + city));
     }
 }
